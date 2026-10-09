@@ -1,4 +1,4 @@
-# Inventory Management System (DMS)
+# Inventory Management System
 
 A web-based Inventory Management System built with **Laravel 12**,
 **MySQL**, **Tailwind CSS 4**, and **JavaScript**. The project is being
