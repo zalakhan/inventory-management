@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Http\Requests\Sales;
+
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+
+class StoreSaleReturnRequest extends FormRequest
+{
+    public function authorize(): bool
+    {
+        return $this->user()->can('sale_returns.create');
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function rules(): array
+    {
+        return [
+            'warehouse_id' => ['required', 'integer', Rule::exists('warehouses', 'id')],
+            'customer_id' => ['required', 'integer', Rule::exists('customers', 'id')],
+            'sale_id' => ['nullable', 'integer', Rule::exists('sales', 'id')],
+            'return_date' => ['required', 'date'],
+            'reason' => ['nullable', 'string'],
+            'notes' => ['nullable', 'string'],
+            'items' => ['required', 'array', 'min:1'],
+            'items.*.product_id' => ['required', 'integer', Rule::exists('products', 'id')],
+            'items.*.quantity' => ['required', 'numeric', 'min:0.0001'],
+            'items.*.rate' => ['required', 'numeric', 'min:0'],
+        ];
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'items.required' => 'Add at least one product line.',
+            'items.min' => 'Add at least one product line.',
+        ];
+    }
+}
