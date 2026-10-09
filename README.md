@@ -1,59 +1,78 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Distribution Management System (DMS)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A web-based Distribution Management System built with **Laravel 12**,
+**MySQL**, **Tailwind CSS 4**, and **JavaScript**. The project is being
+developed in **Cursor IDE**.
 
-## About Laravel
+The system is intended to help a distribution business manage products,
+inventory, sales, customer accounts, payments, and reporting from one
+application.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+> **Project status:** In development. Features listed below describe the
+> planned scope and may not all be implemented yet.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Technology Stack
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-   **Backend:** Laravel 12 / PHP
+-   **Database:** MySQL
+-   **Frontend:** Blade, Tailwind CSS 4, JavaScript
+-   **Development environment:** Cursor IDE; local development can use
+    XAMPP or another compatible PHP/MySQL environment
+-   **Authorization:** Planned role and permission management, using
+    Spatie Laravel Permission if adopted in the project
 
-## Learning Laravel
+## Planned Modules
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+-   Dashboard
+-   Product categories and product management
+-   Customer management
+-   Supplier/company management
+-   Stock receiving and inventory tracking
+-   Stock ledger and stock adjustments
+-   Sales invoices
+-   Customer ledger and outstanding balances
+-   Customer payment receipts
+-   Sales returns
+-   Damaged and expired stock tracking
+-   Salesmen and areas/routes
+-   Reports
+-   User management
+-   Roles and permissions
+-   System settings
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Key Business Workflows
 
-## Laravel Sponsors
+### Inventory
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Inventory movements should be recorded with a transaction reference so
+stock changes can be traced and audited.
 
-### Premium Partners
+**Indicative calculation:**
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+`Opening Stock + Stock Received + Sales Returns - Sales - Damaged/Stock Out Adjustments = Current Stock`
 
-## Contributing
+The final calculation will depend on the implemented transaction rules.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Customer balances
 
-## Code of Conduct
+Customer account activity should be traceable through ledger entries.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**Indicative calculation:**
 
-## Security Vulnerabilities
+`Opening Balance + Credit Sales - Payments - Sales Returns/Credit Notes = Outstanding Balance`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+The backend should be the source of truth for all financial
+calculations.
 
-## License
+## Local Development Setup
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The following steps are a general guide. Adjust them to match the actual
+project configuration.
+
+### Requirements
+
+-   PHP version compatible with Laravel 12
+-   Composer
+-   MySQL
+-   Node.js and npm
+-   Git (recommended)
